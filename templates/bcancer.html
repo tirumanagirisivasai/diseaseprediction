@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breast Cancer Prediction</title>
+    <style>
+        *{
+            
+            font-family: 'Rubik', sans-serif;
+        }
+        html{
+            background-color: rgb(100,100,100);
+          }
+        nav{
+            background-color: rgb(33,33,33);
+            padding: 20px;
+            border-radius: 20px;
+            display: grid;
+            color: white;
+            grid-template-columns: auto 15vh;            
+        }
+        .list-items{
+            display: flex;
+            align-items: center;
+        }
+        li,a{
+            color: white;
+            text-decoration: none;
+            list-style: none;
+        }
+        .main1{
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+        .container{
+            color: white;
+            background-color: rgba(0,0,0,1);
+            padding: 20px 40px 20px 40px;
+            border: 5px solid black;
+            border-radius: 20px;
+            margin-top: 1%;
+            display:inline-table;
+            
+        }
+        button{
+            margin-top: 20px;
+            width: 15em;
+            font-size: large;
+            height: 50px;
+            border-radius: 100px;
+        }
+        input{
+
+            background-color: silver;
+            border: 2px solid black;
+            border-radius: 5px;
+            height: 30px;
+            margin-top: 5px;
+        }
+        .form-elements{
+            display: grid;
+            gap: 20px 50px;
+            grid-template-columns: auto auto auto;
+        }
+        button:hover{
+            background-color: white;
+            transition: 200ms ease-in-out;
+            animation: glow 5s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
+            from {
+                transition: 3s;
+                box-shadow: 0 0 10px #fff,  0 0 20px #e60073, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073;
+            }
+            to {
+                transition: 3s;
+                box-shadow: 0 0 10px #fff, 0 0 20px #e60073, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav_heading"><h1>Breast Cancer Predictor</h1></div>
+        <div class="list-items">
+            <ol>
+                <li><a href="/">Home</a></li>
+            </ol>
+        </div>        
+    </nav>
+    <br>
+    <article style="background-color: white; border-radius: 10px; padding: 10px; width: auto;">
+        <h3>Warning</h3>
+        <p>-Sometimes test results may not be accurate</p>
+    </article><br>
+    
+    <div class="main1">
+    <div class="container">
+        <h3>Please enter the details below:</h3>
+    <form action="{{url_for('predict_bcancer')}}" method="post" class="form-elements">
+        
+        <div><span>mean radius:</span><br><input type="text" name="A"><br></div>
+        <div><span>mean texture:</span><br><input type="text" name="b"><br></div>
+        <div><span>mean perimeter:</span><br><input type="text" name="c"><br></div>
+        <div><span>mean area:</span><br><input type="text" name="d"><br></div>
+        <div><span>mean smoothness:</span><br><input type="text" name="e"><br></div>
+        <div><span>mean compactness:  </span><br><input type="text" name="f"><br></div>
+        <div><span>mean concavity:</span><br><input type="text" name="g"><br></div>
+        <div><span>mean concave points:</span><br><input type="text" name="h"><br></div>
+        <div><span>mean symmetry:</span><br><input type="text" name="i"><br></div>
+        <div><span>mean fractal dimension:</span><br><input type="text" name="j"><br></div>
+        <div><span>radius error:</span><br><input type="text" name="k"><br></div>
+        <div><span>texture error:</span><br><input type="text" name="oo"><br></div>
+        <div><span>perimeter error:</span><br><input type="text" name="l"><br></div>
+        <div><span>area error:</span><br><input type="text" name="m"><br></div>
+        <div><span>smoothness error:</span><br><input type="text" name="n"><br></div>
+        <div><span>compactness error:</span><br><input type="text" name="o"><br></div>
+        <div><span>concavity error:</span><br><input type="text" name="p"><br></div>
+        <div><span>concave points error:</span><br><input type="text" name="q"><br></div>
+        <div><span>symmetry error:</span><br><input type="text" name="r"><br></div>
+        <div><span>fractal dimension error:</span><br><input type="text" name="s"><br></div>
+        <div><span>worst radius:</span><br><input type="text" name="t"><br></div>
+        <div><span>worst texture:</span><br><input type="text" name="u"><br></div>
+        <div><span>worst perimeter:</span><br><input type="text" name="v"><br></div>
+        <div><span>worst area:</span><br><input type="text" name="w"><br></div>
+        <div><span>worst smoothness:</span><br><input type="text" name="x"><br></div>
+        <div><span>worst compactness:</span><br><input type="text" name="y"><br></div>
+        <div><span>worst concavity:</span><br><input type="text" name="z"><br></div>
+        <div><span>worst concave points:</span><br><input type="text" name="b1"><br></div>
+        <div><span>worst symmetry:</span><br><input type="text" name="b5"><br></div>
+        <div><span>worst fractal dimension:</span><br><input type="text" name="c2"><br></div>
+        <button type="submit">Predict</button>
+    </form>
+    <br>
+    <br>
+    </div>
+</div>
+    <h2>Your Result Will Appear here:</h2>
+    <p>{{ prediction_text }}</p>
+
+</body>
+</html>

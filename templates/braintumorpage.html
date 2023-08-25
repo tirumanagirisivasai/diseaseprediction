@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family: 'Rubik', sans-serif;
+        }
+        html{
+            background-color: rgb(100,100,100);
+        }
+        nav{
+            background-color: rgb(33,33,33);
+            padding: 20px;
+            border-radius: 20px;
+            display: grid;
+            color: white;
+            grid-template-columns: auto 15vh;            
+        }
+        .list-items{
+            display: flex;
+            align-items: center;
+        }
+        li,a{
+            color: white;
+            text-decoration: none;
+            list-style: none;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .formcontainer{
+            border:5px solid black;
+            border-radius: 10px;
+            padding: 20px;
+            display: grid;
+        }
+        button{
+            margin-top: 20px;
+            width: 10em;
+            font-size: large;
+            height: 50px;
+            border-radius: 100px;
+        }
+        input{
+
+            margin-top: 10px;
+            margin-left: 10em;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav_heading"><h1>Brain Tumor Predictor</h1></div>
+        <div class="list-items">
+            <ol>
+                <li><a href="/">Home</a></li>
+            </ol>
+        </div>        
+    </nav><br><br>
+    <article style="background-color: white; border-radius: 10px; padding: 10px; width: auto;">
+        <h3>Warning</h3>
+        <p>-Please include the proper MRI scan</p>
+    </article><br>
+    <div class="container">
+        <form action="{{'predict_tumor'}}" method="post" enctype="multipart/form-data">
+            <div class="formcontainer">
+                <span>Choose the scaning report of patient:</span><br>
+                <input type="file" name="mriscan" placeholder="Choose File">
+                <input type="submit">
+            </div>
+            
+        </form>
+    </div>    
+    <h2>Your Result Will Appear here:</h2>
+    <p>{{ prediction_text }}</p>
+</body>
+</html>

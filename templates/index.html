@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family: 'Rubik', sans-serif;
+        }
+        html{
+            background-image: url('https://parade.com/.image/t_share/MTkwNTgwODMyMzk3MTc0NjUy/medicare-history-jpg.jpg');
+            background-color: white;
+            background-size: cover;
+        }
+        nav{
+            position:static;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            background-color: #007BFF;
+            border-radius: 20px;
+        }
+        .inner-content{
+            
+            width: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        li,a{
+            text-decoration: none;
+            list-style: none;
+            margin: 10px;
+            color: black;
+        }
+        li{
+            font-size: x-large;
+            padding: 10px;
+            border: 2px solid #000000;
+            border-radius: 10px;
+            width: 50vw;
+        }
+        ul{ 
+            background-color: rgba(253, 255, 253, 0.5);
+            border: 10px solid black;
+            border-radius: 20px;
+            padding: 30px 30px 30px 20px;
+            display: grid;
+            grid-template-rows: auto auto auto auto;
+            align-items: center;
+            justify-content: center;
+        }
+        li:hover{
+            background-color: rgba(209, 67, 67, 0.945);
+            transition: 200ms ease-out;
+            text-decoration: underline;
+        }
+        .container{
+            display: grid;
+            grid-template-rows: auto;
+        }
+    </style>
+</head>
+<body>
+    <nav><div><h1 style="font-size: 50px; color:rgb(94, 97, 6)">Disease Predictor Using Machine Learning</h1></div></nav>
+    
+    <div class="container">
+        <h1>Select the disease you want to Predict</h1>
+        <div class="inner-content">
+            
+            <ul>
+                <li><a href="/sample" target="_parent">Heart Stroke</a><i class="fa-solid fa-arrow-right fa-beat-fade"></i></li>
+                <li><a href="/brainstroke">Brain Stroke</a></li>
+                <li><a href="/diabetes">Diabetes</a></li>
+                <li><a href="/tumor">Brain Tumor</a></li>
+                <li><a href="/liver">Liver </a></li>
+                <li><a href="/breastcancer">Breast Cancer</a></li>
+            </ul>
+        </div>
+    </div>
+    
+</body>
+</html>

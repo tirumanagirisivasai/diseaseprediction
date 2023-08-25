@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            
+            font-family: 'Rubik', sans-serif;
+        }
+        html{
+            background-color: rgb(100,100,100);
+          }
+        nav{
+            background-color: rgb(33,33,33);
+            padding: 20px;
+            border-radius: 20px;
+            display: grid;
+            color: white;
+            grid-template-columns: auto 15vh;            
+        }
+        .list-items{
+            display: flex;
+            align-items: center;
+        }
+        li,a{
+            color: white;
+            text-decoration: none;
+            list-style: none;
+        }
+        .main1{
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+        .container{
+            color: white;
+            background-color: rgba(0,0,0,1);
+            padding: 20px 40px 20px 40px;
+            border: 5px solid black;
+            border-radius: 20px;
+            margin-top: 1%;
+            display:inline-table;
+            
+        }
+        button{
+            margin-top: 20px;
+            width: 15em;
+            font-size: large;
+            height: 50px;
+            border-radius: 100px;
+        }
+        input{
+
+            background-color: silver;
+            border: 2px solid black;
+            border-radius: 5px;
+            height: 30px;
+            margin-top: 5px;
+        }
+        .form-elements{
+            display: grid;
+            gap: 20px 50px;
+            grid-template-columns: auto auto;
+        }
+        button:hover{
+            background-color: white;
+            transition: 200ms ease-in-out;
+            animation: glow 5s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
+            from {
+                transition: 3s;
+                box-shadow: 0 0 10px #fff,  0 0 20px #e60073, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073;
+            }
+            to {
+                transition: 3s;
+                box-shadow: 0 0 10px #fff, 0 0 20px #e60073, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav_heading"><h1>Heart Stroke Predictor</h1></div>
+        <div class="list-items">
+            <ol>
+                <li><a href="/">Home</a></li>
+            </ol>
+        </div>        
+    </nav>
+    <br>
+    <article style="background-color: white; border-radius: 10px; padding: 10px; width: auto;">
+        <h3>Warning</h3>
+        <p>-Sometimes test results may not be accurate</p>
+        <h4>Note</h4>
+        <p>Gender: If male enter 0 else enter 0</p>
+    </article><br>
+    
+    <div class="main1">
+    <div class="container">
+        <h3>Please enter the details below:</h3>
+    <form action="{{url_for('predict')}}" method="post" class="form-elements">
+        
+        <!--age	sex	cp	trestbps	chol	fbs	restecg	thalach	exang	oldpeak	slope	ca	thal-->
+        <div><span>Age:</span><br><input type="text" name="A"/><br></div>
+        <div><span>Gender:</span><br><input type="text" name="b"/><br></div>
+        <div><span>CP:</span><br><input type="text" name="c"/><br></div>
+        <div><span>Trestbps:</span><br><input type="text" name="d"/><br></div>
+        <div><span>Cholestrol:</span><br><input type="text" name="e"/><br></div>
+        <div><span>FBS:  </span><br><input type="text" name="f"/><br></div>
+        <div><span>RestEcg:</span><br><input type="text" name="g"/><br></div>
+        <div><span>Thalach:</span><br><input type="text" name="h"/><br></div>
+        <div><span>Exang:</span><br><input type="text" name="i"/><br></div>
+        <div><span>Oldpeak:</span><br><input type="text" name="j"/><br></div>
+        <div><span>Slope:</span><br><input type="text" name="k"/><br></div>
+        <div><span>CA:</span><br><input type="text" name="oo"/><br></div>
+        <div><span>Thal:</span><br><input type="text" name="l"/><br></div><br>
+        <button type="submit">Predict</button>
+    </form>
+    <br>
+    <br>
+    </div>
+</div>
+    <h2>Your Result Will Appear here:</h2>
+    <p>{{ prediction_text }}</p>
+
+</body>
+</html>
